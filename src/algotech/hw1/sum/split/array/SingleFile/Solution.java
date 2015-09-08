@@ -1,7 +1,21 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+A non-empty zero-indexed array A consisting of N integers is given. Array A represents numbers on a tape.
+
+Any element P of array splits this tape into two parts: A[0], A[1], ..., A[P − 1] and A[P + 1], ..., A[N − 1].
+
+Determine if an element exists which the sum of the elements on its left is equal to the sum of the elements on its right.
+
+In other words, find an element P of array such that:
+
+A[0] + A[1] + ... + A[P − 1] = A[P + 1] + ... + A[N − 1]
+
+For example, given:
+
+A[0] = 1
+A[1] = 2
+A[2] = 3
+A[3] = 3
+Your program should print YES, since A[0] + A[1] = A[3].
  */
 package algotech.hw1.sum.split.array.SingleFile;
 
@@ -10,20 +24,30 @@ import java.util.Scanner;
 
 /**
  *
- * @author piecar
+ * @author Pierre Jimenez
  */
 public class Solution {
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        ArrayList<Integer> tape = new ArrayList();
+        ArrayList<Boolean> answers = new ArrayList();
         
-        ArrayList<Integer> tape = scanToArray();
+        System.out.print("STDIN: ");
+        Scanner scan = new Scanner(System.in);
+        int numTests = scan.nextInt();
+        for(int i=1; i<=numTests; i++){
+            tape = scanToArray(scan);
+            answers.add(SumEnds(tape));         
+        }
         
-        boolean answer = SumEnds(tape);
+        for(int i=1; i<=numTests; i++){
+            System.out.println("OUT " + i +": " + answers.get(i-1));         
+        }
         
-        System.out.println("STDOUT: " + answer);
+        
+              
         
     }
 
@@ -47,12 +71,11 @@ public class Solution {
         }  
     }
 
-    private static ArrayList<Integer> scanToArray() {
+    private static ArrayList<Integer> scanToArray(Scanner scan) {
         ArrayList<Integer> tape = new ArrayList();
-        System.out.print("STDIN: ");
-        Scanner scan = new Scanner(System.in);
-        while(scan.hasNextInt())
-        {
+        
+        int numElem = scan.nextInt();
+        for(int i=0; i<numElem; i++) {
             Integer num = scan.nextInt();
             tape.add(num);
         }
