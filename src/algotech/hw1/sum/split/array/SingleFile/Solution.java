@@ -16,7 +16,7 @@ A[1] = 2
 A[2] = 3
 A[3] = 3
 Your program should print YES, since A[0] + A[1] = A[3].
-
+***************************************************************************
 Assumption: The array must have a minimum legth 3. 
     Otherwise P can have no elements to the right and/or to the left of it. 
  */
@@ -34,7 +34,7 @@ public class Solution {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<Integer> tape = new ArrayList();
+        ArrayList<Integer> tape;
         ArrayList<Boolean> answers = new ArrayList();
         
         System.out.print("STDIN: ");
@@ -51,7 +51,7 @@ public class Solution {
     }
 
     private static boolean SumEnds(ArrayList<Integer> tape) {
-        int leftSum = 0, rightSum =0;
+        int leftSum, rightSum =0;
         
         if(tape.size() >= 3){
             leftSum = tape.get(0);
