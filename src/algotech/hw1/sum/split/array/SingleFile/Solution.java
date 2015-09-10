@@ -16,6 +16,9 @@ A[1] = 2
 A[2] = 3
 A[3] = 3
 Your program should print YES, since A[0] + A[1] = A[3].
+
+Assumption: The array must have a minimum legth 3. 
+    Otherwise P can have no elements to the right and/or to the left of it. 
  */
 package algotech.hw1.sum.split.array.SingleFile;
 
@@ -24,7 +27,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Pierre Jimenez
+ * @author Pierre Jimenez, pjime032
  */
 public class Solution {
     /**
@@ -45,10 +48,6 @@ public class Solution {
         for(int i=1; i<=numTests; i++){
             System.out.println("OUT " + i +": " + answers.get(i-1));         
         }
-        
-        
-              
-        
     }
 
     private static boolean SumEnds(ArrayList<Integer> tape) {
